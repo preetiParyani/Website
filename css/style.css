@@ -1,41 +1,242 @@
+@font-face {
+  font-family: neu;
+  src: url(/NeueHaasDisplayMediu.ttf);
+}
+
+@font-face {
+  font-family: neu;
+  font-weight: 100;
+  src: url(/NeueHaasDisplayLight.ttf);
+}
+
+@font-face {
+  font-family: neu;
+  font-weight: 200;
+  src: url(/NeueHaasDisplayRoman.ttfq);
+}
+
+:root {
+  --pagecolor: #efeae3;
+  --textColor: rgb(11, 5, 0, 0.2);
+  --heroShapeColor: #fe320a;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Gilroy";
+  font-family: neu;
 }
+
 html,
 body {
   height: 100%;
   width: 100%;
 }
+
 #page1 {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  background: #efeae3;
+  background: var(--pagecolor);
   position: relative;
+  padding: 0 2vw;
 }
+
 #page1 nav {
-  height: 100px;
+  padding: 2vw 0;
   width: 100%;
-  padding: 2em;
+  padding: 0.8em;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-#page1 #nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 #page1 #nav-links {
   display: flex;
   align-items: center;
   gap: 1vw;
 }
+
+#page1 #nav-links h4 {
+  padding: 10px 20px;
+  border: 1px solid var(--textColor);
+  border-radius: 50px;
+  font-weight: 500;
+  color: rgb(11, 5, 0);
+  font-size: 18px;
+  position: relative;
+  transition: all, ease, 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#page1 #nav-links h4::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  bottom: -100%;
+  border-radius: 50px;
+  transition: all, ease, 0.3s;
+}
+
+#page1 #nav-links h4:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
 #page1 #nav-links a {
   text-decoration: none;
-  color: rgba(58, 57, 57, 0.8);
-  padding: 2px;
-  border: 1px solid rgba(58, 57, 57, 0.8);
+  color: rgb(11, 5, 0, 0.8);
+  z-index: 1;
+  position: relative;
+}
+
+#page1 #nav-links h4:hover a {
+  color: white;
+}
+
+.center {
+  height: 65vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 2.5vw;
+}
+
+.left h3 {
+  width: 30vw;
+  font-size: 2vw;
+  font-weight: 500;
+  line-height: 2vw;
+}
+
+.center h1 {
+  font-size: 10vw;
+  text-align: right;
+  line-height: 8vw;
+}
+
+#page1 video {
+  border-radius: 30px;
+  width: 100%;
+  margin-top: 4vw;
+  position: relative;
+}
+
+.hero-shape {
+  position: absolute;
+  width: 46vw;
+  height: 36vw;
+  right: 0;
+  top: 75vh;
+}
+
+.hero-1 {
+  background-color: #fe320a;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  filter: blur(10px);
+  position: absolute;
+}
+
+.hero-2 {
+  background: linear-gradient(#fe320a, #fe3f0a);
+
+  height: 30vw;
+  width: 30vw;
+  border-radius: 50%;
+  position: absolute;
+  animation-name: anime2;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  filter: blur(25px);
+}
+
+.hero-3 {
+  background: linear-gradient(#fe320a, #fe3f0a);
+
+  height: 30vw;
+  position: absolute;
+  width: 30vw;
+  border-radius: 50%;
+  filter: blur(25px);
+  animation-name: anime1;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes anime1 {
+  from {
+    transform: translate(50%, 10%);
+  }
+
+  to {
+    transform: translate(70%, -3%);
+  }
+}
+
+@keyframes anime2 {
+  from {
+    transform: translate(4%, 40%);
+  }
+
+  to {
+    transform: translate(40%, -20%);
+  }
+}
+#page2 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #efeae3;
+  padding: 8vw 0;
+  position: relative;
+}
+#movingText {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+#movingText::-webkit-scrollbar {
+  display:none;
+}
+
+#container {
+  white-space: nowrap;
+  display: inline-block;
+  animation: TextAutoMove;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#movingText h1 {
+  font-size: 9vw;
+  display: inline-block;
+}
+#circle {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: var(--heroShapeColor);
+  margin: 1vw 2vw;
+}
+
+@keyframes TextAutoMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
