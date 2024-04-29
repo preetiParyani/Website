@@ -1,6 +1,5 @@
 @font-face {
   font-family: neu;
-  /* font-weight: 100; */
   src: url(/NeueHaasDisplayMediu.ttf);
 }
 
@@ -20,6 +19,8 @@
   --pagecolor: #efeae3;
   --textColor: rgb(11, 5, 0, 0.2);
   --heroShapeColor: #fe320a;
+  --bordercolor: rgba(0, 0, 0, 0.2);
+  --elemColor: #ff9831;
 }
 
 * {
@@ -103,13 +104,13 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--bordercolor);
   padding-bottom: 2.5vw;
 }
 
 .left h3 {
   width: 30vw;
-  /* font-size: 2vw; */
+  font-size: 2vw;
   /* line-height: 2vw; */
 }
 
@@ -248,10 +249,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 9;
 }
-#page2-Bottom #bottomPart1{
+#page2-Bottom #bottomPart1 {
   width: 80%;
-  }
+}
 
 #page2-Bottom h1 {
   font-size: 5vw;
@@ -259,7 +262,7 @@ body {
   letter-spacing: -0.2vw;
   line-height: 1;
 }
-#page2-Bottom #bottomPart2{
+#page2-Bottom #bottomPart2 {
   width: 20%;
   /* background-color: #fe320a; */
 }
@@ -271,4 +274,66 @@ body {
   font-weight: 100;
   margin-top: 2vw;
   text-align: justify;
+}
+
+#circularEffect {
+  height: 30vw;
+  width: 30vw;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+  top: 58%;
+  left: 25%;
+  filter: blur(10px);
+  animation-name: circularEffect;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes circularEffect {
+  from {
+    filter: blur(20px);
+    transform: translate(10%, -10%) skew(0);
+  }
+
+  to {
+    filter: blur(10px);
+    transform: translate(-10%, 10%) skew(-12deg);
+  }
+}
+#page3 {
+  height: 100vh;
+  width: 100%;
+  background-color: #584730;
+  padding: 4vw 0;
+}
+#page3 .elem {
+  height: 6cqi;
+  width: 100%;
+  border-bottom: 1px solid var(--bordercolor);
+  display: flex;
+  align-items: center;
+  padding: 0 2vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.elem h2 {
+  font-size: 3vw;
+  position: relative;
+  z-index: 9;
+}
+.elem .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--elemColor);
+  left: 0;
+  top: -100%;
+  transition: all ease 0.25s;
+}
+.elem:hover .overlay {
+  top: 0;
 }
