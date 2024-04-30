@@ -198,7 +198,7 @@ body {
 #page2 {
   min-height: 100vh;
   width: 100%;
-  background-color: #efeae3;
+  background-color: var(--pagecolor);
   padding: 8vw 0;
   position: relative;
 }
@@ -306,11 +306,11 @@ body {
 #page3 {
   height: 100vh;
   width: 100%;
-  background-color: #584730;
   padding: 4vw 0;
+  background-color: var(--pagecolor);
 }
 #page3 .elem {
-  height: 6cqi;
+  height: 8vw;
   width: 100%;
   border-bottom: 1px solid var(--bordercolor);
   display: flex;
@@ -336,4 +336,21 @@ body {
 }
 .elem:hover .overlay {
   top: 0;
+}
+#page3 #elem-container{
+  /* background-color: #fe320a; */
+}
+#fixed-container{
+  height: 30vw;
+  width: 24vw;
+  border-radius: 20px;
+  position: fixed;
+  /* background-color: #fe320a; */
+  z-index: 99;
+  left: 50%;
+  top:25%;
+  background-size: cover;
+  background-position: center;
+  display: none;
+
 }
