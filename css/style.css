@@ -21,6 +21,7 @@
   --heroShapeColor: #fe320a;
   --bordercolor: rgba(0, 0, 0, 0.2);
   --elemColor: #ff9831;
+  --blackColor: #0B0500;
 }
 
 * {
@@ -353,4 +354,36 @@ body {
   background-position: center;
   display: none;
 
+}
+#page4{
+  height: 70vh;
+  width: 100%;
+  background-color: var(--blackColor);
+  margin: 6vw 4vw;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page4 #DPE{
+  
+  width: 40%;
+  padding: 4vw;
+
+  /* background-color: #c1822a; */
+}
+#DPE a{
+  text-decoration: none;
+  color: white;
+  font-size: 6vw;
+
+
+}
+#DPE-text{
+  height: 80%;
+  width: 100%;
+  color: #efeae3;
+}
+#page4 #DPE-image{
+  width: 60%;
 }
