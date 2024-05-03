@@ -3,9 +3,9 @@ public class Solution {
 
     String result = "";
 
-    for (int i = 0; i < s.length(); i++) {
-      result += Character.toString(s.charAt(i)) + Character.toString(s.charAt(i));
-    }
+    
+      result += s.charAt(0) + s.charAt((s.length())-1);
+    
     System.out.println(result);
     return result;
   }
